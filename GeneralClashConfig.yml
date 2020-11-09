@@ -142,7 +142,7 @@ dns:
   nameserver:
     - 119.29.29.29
     - 119.28.28.28
-    - 202.141.162.123
+    - https://doh.pub/dns-query
     - https://i.233py.com/dns-query
     - https://doh.dns.sb/dns-query
   fake-ip-filter:
