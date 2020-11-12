@@ -163,7 +163,7 @@ dns:
 cfw-conn-break-strategy:
   proxy: all # none/chain/all
   profile: true # true/false
-  mode: false # true/false
+  mode: true # true/false
 
 # 自定义状态栏图标
 #cfw-tray-icon:
