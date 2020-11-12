@@ -142,9 +142,9 @@ dns:
   nameserver:
     - 119.29.29.29
     - 119.28.28.28
-#    - https://doh.pub/dns-query
-#    - https://i.233py.com/dns-query
-#    - https://doh.dns.sb/dns-query
+    - https://doh.pub/dns-query
+    - https://i.233py.com/dns-query
+    - https://doh.dns.sb/dns-query
   fake-ip-filter:
     - '*.lan'
     - localhost.ptlogin2.qq.com
