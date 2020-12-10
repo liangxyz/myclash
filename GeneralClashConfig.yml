@@ -134,21 +134,21 @@ cfw-latency-url: http://www.gstatic.com/generate_204
 
 # 混合配置（mixin）
 # 支持向所有配置文件中注入公共属性设置
-dns:
-  enable: true
-  ipv6: false
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  nameserver:
-    - 119.29.29.29
-    - 119.28.28.28
-    - https://doh.pub/dns-query
-    - https://i.233py.com/dns-query
-    - https://doh.dns.sb/dns-query
-  fake-ip-filter:
-    - '*.lan'
-    - localhost.ptlogin2.qq.com
-    - ssl.ptlogin2.weiyun.com
+#dns:
+#  enable: true
+#  ipv6: false
+#  listen: 0.0.0.0:53
+#  enhanced-mode: fake-ip
+#  nameserver:
+#    - 119.29.29.29
+#    - 119.28.28.28
+#    - https://doh.pub/dns-query
+#    - https://i.233py.com/dns-query
+#    - https://doh.dns.sb/dns-query
+#  fake-ip-filter:
+#    - '*.lan'
+#    - localhost.ptlogin2.qq.com
+#    - ssl.ptlogin2.weiyun.com
   #experimental:
     #interface-name: WLAN
 
