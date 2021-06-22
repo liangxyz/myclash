@@ -92,45 +92,45 @@ experimental:
      #geoip: true # 默认
      #ipcidr: # 在这个网段内的 IP 地址会被考虑为被污染的 IP
        #- 240.0.0.0/4
-  dns:
-    enable: true
-    ipv6: false
+  #dns:
+    #enable: true
+   # ipv6: false
     # listen: 0.0.0.0:53
-    enhanced-mode: redir-host
-    use-hosts: true
-    fake-ip-filter:
-      - 'dns.msftncsi.com'
-      - 'www.msftncsi.com'
-      - 'www.msftconnecttest.com'
-      - '+.qq.com'
-      - '+.music.163.com'
-      - '+.music.162.com'
-    default-nameserver:
-      - 119.29.29.29
-      - 114.114.114.114
-      - 8.8.8.8
-    nameserver:
-      - 119.29.29.29
-      - 223.5.5.5
-      - 8.8.8.8
-      - 114.114.114.114
-      - 1.1.1.1
-    fallback:
-      - 'https://doh.pub/dns-query'
-      - 'https://i.233py.com/dns-query'
-      - 'https://doh.dns.sb/dns-query'
-      - 'https://1.1.1.1/dns-query'
-      - 'https://162.159.36.1/dns-query'
-      - 'https://162.14.13.12/dns-query'
-      - 'tls://dns.rubyfish.cn:853'
-      - 'tls://1.0.0.1:853'
-      - 'tls://dns.google:853'
-    fallback-filter:
-      geoip: true
-      ipcidr:
-        - 0.0.0.0/32
-        - 127.0.0.0/8
-        - 240.0.0.0/4
+  #  enhanced-mode: redir-host
+#    use-hosts: true
+#    fake-ip-filter:
+#      - 'dns.msftncsi.com'
+#      - 'www.msftncsi.com'
+#      - 'www.msftconnecttest.com'
+#      - '+.qq.com'
+#      - '+.music.163.com'
+#      - '+.music.162.com'
+#    default-nameserver:
+#      - 119.29.29.29
+#      - 114.114.114.114
+ #     - 8.8.8.8
+ #   nameserver:
+#      - 119.29.29.29
+#      - 223.5.5.5
+#      - 8.8.8.8
+#      - 114.114.114.114
+ #     - 1.1.1.1
+#    fallback:
+#      - 'https://doh.pub/dns-query'
+#      - 'https://i.233py.com/dns-query'
+#      - 'https://doh.dns.sb/dns-query'
+#      - 'https://1.1.1.1/dns-query'
+#      - 'https://162.159.36.1/dns-query'
+#      - 'https://162.14.13.12/dns-query'
+#      - 'tls://dns.rubyfish.cn:853'
+#      - 'tls://1.0.0.1:853'
+ #     - 'tls://dns.google:853'
+#    fallback-filter:
+  #    geoip: true
+#      ipcidr:
+ #       - 0.0.0.0/32
+ #       - 127.0.0.0/8
+  #      - 240.0.0.0/4
 
 # 1. clash DNS 请求逻辑：
 #   (1) 当访问一个域名时， nameserver 与 fallback 列表内的所有服务器并发请求，得到域名对应的 IP 地址。
