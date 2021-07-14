@@ -4,6 +4,6 @@ DOMAIN-SUFFIX,microsoft.com
 DOMAIN-KEYWORD,diyibanzhu
 DOMAIN-KEYWORD,lanzou
 DOMAIN-SUFFIX,cache.baiducontent.com
-DOMAIN-KEYWORD,plmn
-DOMAIN-SUFFIX,plmn5.com
-DOMAIN-KEYWORD,jpxgmn
+;DOMAIN-KEYWORD,plmn
+;DOMAIN-SUFFIX,plmn5.com
+;DOMAIN-KEYWORD,jpxgmn
