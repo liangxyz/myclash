@@ -979,7 +979,7 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
     }
 
 
-    async function ByCommonFotmat(folderCid, text,needToCreateParentFolder) {
+    async function ByCommonFotmat(folderCid, text, needToCreateParentFolder,needToRenameSha1FileName) {
 
         //js 奇怪的\r\n分割...
         var lines = text.split(/\r?\n/);
@@ -993,6 +993,27 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
 
             var r = convertFromSha1Link(line.trim())
             if (r.state) {
+               let nameT = "";
+
+               if(needToRenameSha1FileName){
+                    //给文件重命名,加入特殊字符
+
+                    let finalNameString = "";
+                   let fileType = "";
+                   let nameT = r.fileItem.name;
+                   let dian = nameT.lastIndexOf (".")
+                   fileType =  "."+nameT.substring(dian + 1)
+                   nameT = nameT.substring(0,dian);
+                   console.log(nameT)
+                   for(let i = 0;i < nameT.length; i ++){
+                       finalNameString += nameT[i] + "@";
+                   }
+
+                    console.log("mmmmmmmmmmm"+finalNameString)
+                    r.fileItem.name = finalNameString+fileType;
+                   }else{
+
+                   }
                 files.push(r.fileItem);
             }
             else {
@@ -1071,7 +1092,7 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
         postSha1Messgae(createMessage(MessageType.END, msg));
     }
 
-    async function NewDownloadFileFromSha1Links(folderCid, text,needToCreateParentFolder) {
+    async function NewDownloadFileFromSha1Links(folderCid, text, needToCreateParentFolder,needToRenameSha1FileName) {
         if (!text) return;
 
         postSha1Messgae(createMessage(MessageType.BEGIN, "正在解析sha1链接..."));
@@ -1081,7 +1102,7 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
             postSha1Messgae(createMessage(MessageType.PROCESSING, "正在转换json格式..."));
             var r = formatJsonToCommon(text);
             if (r.state) {
-                await ByCommonFotmat(folderCid, r.text,needToCreateParentFolder);
+                await ByCommonFotmat(folderCid, r.text, needToCreateParentFolder,needToRenameSha1FileName);
             }
             else {
                 postSha1Messgae(createMessage(MessageType.END, "Json 格式解析出错！"));
@@ -1090,7 +1111,7 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
         else {
             //普通格式
             console.log("COMMON");
-            await ByCommonFotmat(folderCid, text,needToCreateParentFolder);
+            await ByCommonFotmat(folderCid, text, needToCreateParentFolder,needToRenameSha1FileName);
         }
 
 
@@ -1260,9 +1281,19 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
             console.log(div);
             var $fileInput = $('<div style="margin-top: 10px;"><a>或者导入sha1链接文件（txt/json）</a><input class="btn-stroke" type="file" id="downsha1file" accept=".txt,.json"></input></div>');
             var $needPath=$('<div style="margin-top: 10px;"><a>sha1转存时不要给我创建目录：</a><div class="option-switch" style="top:10px"><input type="checkbox" id="downsha1needpath"><label for=""><i>开启</i><s>关闭</s><b>切换</b></label></div>');
+             var $renamesha = $('<div style="margin-top: 10px;">' +
+                '<a>是否在sha1中将违规名字加入特殊字符：</a><div class="option-switch" style="top:10px">' +
+                '<input type="checkbox" id="downsha1rename">' +
+                '<label for="">' +
+                '<i>开启</i>' +
+                '<s>关闭</s>' +
+                '<b>切换</b>' +
+                '</label>' +
+                '</div>');
             div[0].style.display='grid';
             div[0].appendChild($fileInput[0]);
             div[0].appendChild($needPath[0]);
+            div[0].appendChild($renamesha[0]);
             $fileInput[0].addEventListener('change', e => {
                 console.log(e.target.files);
                 if(e.target.files){
@@ -1276,13 +1307,28 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
             document.getElementById('downsha1file').value="";
             file="";
             document.getElementById('downsha1needpath').checked=false;
+            document.getElementById('downsha1rename').checked = false;
             
         }
 
 
         if (document.getElementById('downsha1') == null) {
+            //laona insert
+            let dsArr = document.getElementsByClassName("dialog-status")
+            console.log(dsArr)
+            dsArr[0].style.width = "100%"
 
-            var $btn = $('<div class="con" id="downsha1"><a class="button" href="javascript:;">sha1链接转存</a></div>');
+            let btnArr = document.getElementsByClassName("button")
+            btnArr[2].style.float = "left"
+            btnArr[2].style.lineHeight = "40px"
+            btnArr[2].style.marginTop = "10px"
+
+            let conArr = document.getElementsByClassName("con")
+            console.log(conArr)
+            conArr[0].style.float = "left"
+            //end
+
+            var $btn = $('<div class="con" id="downsha1" style="float: left;line-height: 40px;font-size: 14px;color: #666;width: 30%;height: 50px;margin-top: 10px;"><a class="button" href="javascript:;">sha1链接转存</a></div>');
             jNode[0].appendChild($btn[0]);
             $btn[0].addEventListener('click', e => {
 
@@ -1294,20 +1340,22 @@ https://greasyfork.org/zh-CN/scripts/422619-115%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89
                 var links = document.getElementById('js_offline_new_add').value;
 
                 var needToCreateParentFolder=!document.getElementById('downsha1needpath').checked;
+                var needToRenameSha1FileName = document.getElementById('downsha1rename').checked;
                 console.log("needToCreateParentFolder:{0}".format(needToCreateParentFolder));
+                console.log("needToRenameSha1FileName:{0}".format(needToRenameSha1FileName));
+                console.log("是否加入特殊字符"+needToRenameSha1FileName)
                 if(file){
                     console.log(file);
                     var reader = new FileReader();
                     reader.addEventListener('load', function (t) {
                         file="";
                         //console.log(t.target.result)
-                        NewDownloadFileFromSha1Links(cid, t.target.result,needToCreateParentFolder);
+                        NewDownloadFileFromSha1Links(cid, t.target.result, needToCreateParentFolder,needToRenameSha1FileName);
                       });
                       reader.readAsText(file);
                 }
-                else
-                {
-                    NewDownloadFileFromSha1Links(cid, links,needToCreateParentFolder);
+                else {
+                    NewDownloadFileFromSha1Links(cid, links, needToCreateParentFolder,needToRenameSha1FileName);
                 }
 
                 (document.getElementsByClassName('close')[2].click());
