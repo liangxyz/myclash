@@ -2,7 +2,8 @@
 # 配置文件需要放置在 $HOME/.config/clash/config.yml
 # 或者运行目录下的config.yml
 #---------------------------------------------------#
-# 混合端口 HTTP和SOCKS5用一个端口
+ipv6: true
+# 混合端口 HTTP和SOCKipv6: trueS5用一个端口
 mixed-port: 7890
 
 # HTTP 代理端口
