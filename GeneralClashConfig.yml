@@ -159,9 +159,9 @@ cfw-latency-url: http://www.gstatic.com/generate_204
 # Options for profile: true, false
 # Options for mode: true, false
 cfw-conn-break-strategy:
-  proxy: none # none/chain/all
+  proxy: all # none/chain/all
   profile: true # true/false
-  mode: false # true/false
+  mode: true # true/false
 
 # 自定义状态栏图标
 #cfw-tray-icon:
