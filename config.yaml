@@ -218,11 +218,9 @@ plugins:
         - addr: "https://dns2.cooluc.com/dns-query"
           bootstrap: "222.172.200.68"
           enable_pipeline: true
-          enable_http3: true
         - addr: "https://edns.apad.pro:3306/hk-query"
           bootstrap: "222.172.200.68"
           enable_pipeline: true
-          enable_http3: true     
   - tag: forward_host_socks
     type: fast_forward
     args:
