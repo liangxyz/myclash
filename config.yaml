@@ -61,7 +61,7 @@ plugins:
       auto: false
       ipv4: "182.242.17.25"
       mask4: 24
-      force_overwrite: false
+      force_overwrite: true
   - tag: ecs_global
     type: ecs
     args:
@@ -73,8 +73,8 @@ plugins:
     type: ecs
     args:
       auto: false
-      ipv4: "1.2.4.0"
-      ipv6: "2001:dc7:1000::1"
+      ipv4: "182.242.17.25"
+      ipv6: "240e:34c:170:5690::1"
       mask4: 24
       force_overwrite: true
   - tag: ecs_tw
@@ -189,11 +189,7 @@ plugins:
     type: fast_forward
     args:
       upstream:
-        - addr: "222.172.200.68"
-        - addr: "udpme://223.5.5.5"
-        - addr: "https://dns2.cooluc.com/dns-query"
-          bootstrap: "222.172.200.68"
-          enable_pipeline: true
+        - addr: "192.168.0.5:5353"
   - tag: forward_alidns
     type: fast_forward
     args:
@@ -212,15 +208,7 @@ plugins:
     type: fast_forward
     args:
       upstream:
-        - addr: "https://dns.nextdns.io/595713"
-          dial_addr: "45.11.104.186"
-          enable_pipeline: true
-        - addr: "https://dns2.cooluc.com/dns-query"
-          bootstrap: "222.172.200.68"
-          enable_pipeline: true
-        - addr: "https://edns.apad.pro:3306/hk-query"
-          bootstrap: "222.172.200.68"
-          enable_pipeline: true
+        - addr: "192.168.0.5:5354"
   - tag: forward_host_socks
     type: fast_forward
     args:
@@ -291,7 +279,7 @@ plugins:
         - if: query_is_tw_domain
           exec:
            - ecs_tw
-           - forward_googledns
+           - forward_remote
            - ttl_long
            - _return
 
