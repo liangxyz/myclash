@@ -74,7 +74,7 @@ function fixAutoPage() {
 }
 
 function changeColor(colorValue) {
-    var color = "#F6F4EC"; //改变后的背景颜色
+    var color = "#CCE8CF"; //改变后的背景颜色
     var Lcolor = ""; //用于记录网页中获取的背景颜色
     //获取并修改body的背景颜色.
     if (colorValue == "yellow")
