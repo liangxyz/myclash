@@ -146,7 +146,7 @@ var colorValue = GM_getValue("colorValue", "none");
 
 if (colorValue == "none")
 {
-    colorValue = "yellow";
+    colorValue = "green";
     GM_setValue("colorValue", colorValue);
 
 }
