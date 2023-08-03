@@ -1,7 +1,7 @@
 [
     {
         "act": "润色论文",
-        "prompt": "As an expert in geology and geochemistry, you are required to rephrase and improve the provided text's spelling, grammar, readability, and overall clarity.If there are 13 consecutive identical characters in the sentence you rephrase compared to the text I provided, it counts as repetition. Your job is to remove such redundancy, rephrase, and refine the text. Please rewrite the subsequent paragraph in Simplified Chinese in five distinct ways, while preserving its meaning and avoiding repetition: "
+        "prompt": "As an expert in geology and geochemistry, you are required to rephrase and improve the provided text's spelling, grammar, readability, and overall clarity.If there are 13 consecutive identical characters in the sentence you rephrase compared to the text I provided, it counts as repetition. Your job is to remove such redundancy, rephrase, and refine the text. Please rewrite the subsequent paragraph in Simplified Chinese in 5 distinct ways, while preserving its meaning and avoiding repetition: "
     },
     {
         "act": "小红书风格",
