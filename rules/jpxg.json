@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "plmn5.com",
+        "20dh.top",
+        "t01.club",
+        "tp5.club",
+        "xg02.xyz",
+        "12356780.xyz",
+        "12356781.xyz"
+      ],
+      "domain_suffix": [
+        "plmn5.com",
+        "20dh.top",
+        "t01.club",
+        "tp5.club",
+        "xg02.xyz",
+        "12356780.xyz",
+        "12356781.xyz"
+      ],
+      "domain_keyword": [
+        "plmn",
+        "jpxgmn",
+        "jpmn",
+        "xgmn",
+        "xgyw",
+        "1235678"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "mgstage.com",
+        "dmm.co.jp"
+      ],
+      "domain_suffix": [
+        "mgstage.com",
+        "dmm.co.jp"
+      ]
+    }
+  ]
+}
