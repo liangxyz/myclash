@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "115.com",
+        "haoduopan.cn",
+        "winos.me",
+        "3yt.la"
+      ],
+      "domain_suffix": [
+        "115.com",
+        "haoduopan.cn",
+        "winos.me",
+        "3yt.la"
+      ],
+      "domain_keyword": [
+        "diyibanzhu",
+        "01bzvip",
+        "yydstxt",
+        "lanzou"
+      ]
+    }
+  ]
+}

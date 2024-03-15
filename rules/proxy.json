@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "cocosmos.online",
+        "aneeo.com"
+      ],
+      "domain_suffix": [
+        "cocosmos.online",
+        "aneeo.com"
+      ],
+      "domain_keyword": [
+        "laowang",
+        "btsow"
+      ]
+    }
+  ]
+}
