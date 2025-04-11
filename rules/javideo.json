@@ -4,11 +4,13 @@
     {
       "domain": [
         "mgstage.com",
-        "dmm.co.jp"
+        "dmm.co.jp",
+        "dmm.com"
       ],
       "domain_suffix": [
         "mgstage.com",
-        "dmm.co.jp"
+        "dmm.co.jp",
+        "dmm.com"
       ]
     }
   ]
