@@ -17,7 +17,7 @@
         "injections.adguard.org",
         "www.ncat26.com",
         "trustsing.com",
-        "xiuxitong.com/"
+        "xiuxitong.com"
       ],
       "domain_suffix": [
         "115.com",
@@ -31,7 +31,7 @@
         "www.ccjex.com",
         "www.qqsdk.com",
         "adguard.org",
-        "xiuxitong.com/"
+        "xiuxitong.com"
       ],
       "domain_keyword": [
         "diyibanzhu",
@@ -42,7 +42,8 @@
         "kmust",
         "cjjd19",
         "kmcity",
-        "xiuren5"
+        "xiuren5",
+        "xiuxitong"
       ]
     }
   ]
